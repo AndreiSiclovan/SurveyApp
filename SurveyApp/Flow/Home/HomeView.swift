@@ -8,15 +8,26 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    var startSurvey: () -> Void
+    
     var body: some View {
         VStack {
-            
+            Button(action: startSurvey) {
+                
+                VStack {
+                    Text("Start Survey")
+                        .foregroundColor(.black)
+                }
+                .padding()
+                
+            }
         }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(startSurvey: {})
     }
 }

@@ -8,13 +8,74 @@
 import SwiftUI
 
 struct QuestionsView: View {
+    
+    @ObservedObject var viewModel: QuestionsViewModel
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 48) {
+            
+            Text("Questions submitted: \(viewModel.totalSubmitedAnswers)")
+            
+            Text(viewModel.getQuestion())
+                .font(.title2)
+            
+            
+            textFieldView
+            
+            submitButton
+            
+            Spacer()
+            
+        }
+        .padding(24)
+        .navigationBarTitle("Question \(viewModel.page + 1)/\(viewModel.totalQuestions)")
+        .navigationBarItems(trailing:
+            navigationButtons
+        )
+        .onAppear {
+            viewModel.getQuestions()
+        }
+        .bannerOverlay(bannerView: BannerView(data: .init(type: viewModel.bannerType), show: $viewModel.showBanner), show: $viewModel.showBanner)
+    }
+    
+    private var navigationButtons: some View {
+        HStack {
+            Button("previous") {
+                viewModel.page -= 1
+            }
+            .disabled(viewModel.page == 0)
+        
+            Button("next") {
+                viewModel.page += 1
+            }
+            .disabled(viewModel.page == viewModel.totalQuestions - 1)
+        }
+    }
+    
+    private var textFieldView: some View {
+        VStack {
+            TextField("Type your answer here", text: $viewModel.answer)
+                .autocorrectionDisabled()
+                .padding()
+        }
+        .background(Color.gray.opacity(0.2))
+    }
+    
+    private var submitButton: some View {
+        Button(action: {
+            viewModel.submitAnswer(answer: viewModel.answer)
+        }) {
+            Text(viewModel.hasAnswer() ? "Already submited" : "Submit answer")
+                .padding()
+        }
+        .disabled(viewModel.answer.isEmpty || viewModel.hasAnswer())
+        .background(Color.gray.opacity(0.2))
     }
 }
 
 struct QuestionsView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionsView()
+        QuestionsView(viewModel: .init())
     }
 }

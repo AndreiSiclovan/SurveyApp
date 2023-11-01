@@ -7,4 +7,18 @@
 
 import SwiftUI
 
+struct BannerModifier<T: View>: ViewModifier {
+    
+    @Binding var show: Bool
+    let bannerView: T
+    
+    func body(content: Content) -> some View {
+        ZStack {
+            content
+            if show {
+                bannerView
+            }
+        }
+    }
+}
 

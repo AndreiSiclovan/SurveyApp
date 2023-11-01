@@ -9,14 +9,27 @@ import SwiftUI
 
 struct HomeCoordinator: View {
     
-    @Environment(\.dismiss) private var dismiss
+    @State private var destination: Destinations? = nil
+
+    private enum Destinations {
+        case questions
+    }
     
     var body: some View {
         NavigationView {
             ZStack {
-                addTransactionView
+                
+                NavigationLink(destination: questionsView, tag: Destinations.questions, selection: $destination) { EmptyView() }
+                
+                HomeView() {
+                    destination = .questions
+                }
             }
         }
+    }
+    
+    private var questionsView: some View {
+        QuestionsView(viewModel: .init())
     }
 }
 
