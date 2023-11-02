@@ -39,12 +39,13 @@ final class QAService: QAServiceProtocol {
             "answer": answer.answer
         ]
         
-        AF.request(url, method: .post, parameters: params).response(completionHandler: {
+        AF.request(url, method: .post, parameters: params).validate().response(completionHandler: {
             response in
-            if response.response?.statusCode == 200 {
+            switch response.result {
+            case .success(_):
                 completion(.success(()))
-            } else {
-                completion(.failure(.explicitlyCancelled))
+            case .failure(let error):
+                completion(.failure(error))
             }
         })
     }

@@ -21,11 +21,12 @@ struct BannerData {
     
     init(type: BannerType) {
         self.type = type
-        if type == .success {
+        switch type {
+        case .success:
             title = "Success"
             detail = "Your answer was submitted successfully."
             color = .green
-        } else {
+        case .error:
             title = "Error"
             detail = "Oops! Something went wrong. Please try again!"
             color = .red

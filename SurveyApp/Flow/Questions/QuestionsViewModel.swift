@@ -14,7 +14,7 @@ final class QuestionsViewModel: ObservableObject {
     @Published var questions: [Question] = []
     @Published var page: Int = 0 {
         didSet {
-            answer = questions[page].answer?.answer ?? ""
+            answer = currentQuestion.answer?.answer ?? ""
         }
     }
     @Published var totalQuestions: Int = 0
@@ -22,6 +22,13 @@ final class QuestionsViewModel: ObservableObject {
     @Published var answer: String = ""
     @Published var showBanner: Bool = false
     @Published var bannerType: BannerType = .success
+    
+    private var currentQuestion: Question {
+        guard questions.count > page else {
+            return .init(id: 0, question: "")
+        }
+        return questions[page]
+    }
     
     //MARK: Dependencies
     
@@ -38,11 +45,11 @@ final class QuestionsViewModel: ObservableObject {
             return ""
         }
         
-        return questions[page].question
+        return currentQuestion.question
     }
     
     func submitAnswer(answer: String) {
-        let id = questions[page].id
+        let id = currentQuestion.id
         let answer: Answer = .init(id: id, answer: answer)
         postAnswer(answer: answer)
     }
@@ -52,7 +59,7 @@ final class QuestionsViewModel: ObservableObject {
             return false
         }
         
-        return questions[page].answer != nil
+        return currentQuestion.answer != nil
     }
     
     //MARK: Service calls
