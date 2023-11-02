@@ -10,10 +10,7 @@
 		7ABAF3BF2AF246380032D743 /* SurveyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF3BE2AF246380032D743 /* SurveyAppApp.swift */; };
 		7ABAF3C32AF246390032D743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABAF3C22AF246390032D743 /* Assets.xcassets */; };
 		7ABAF3C62AF246390032D743 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABAF3C52AF246390032D743 /* Preview Assets.xcassets */; };
-		7ABAF3D02AF246390032D743 /* SurveyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF3CF2AF246390032D743 /* SurveyAppTests.swift */; };
-		7ABAF3DA2AF246390032D743 /* SurveyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF3D92AF246390032D743 /* SurveyAppUITests.swift */; };
 		7ABAF3DC2AF246390032D743 /* SurveyAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF3DB2AF246390032D743 /* SurveyAppUITestsLaunchTests.swift */; };
-		7ABAF3E92AF247020032D743 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF3E82AF247020032D743 /* API.swift */; };
 		7ABAF3EC2AF2480E0032D743 /* QAService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF3EB2AF2480E0032D743 /* QAService.swift */; };
 		7ABAF3EF2AF248A30032D743 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF3EE2AF248A30032D743 /* Question.swift */; };
 		7ABAF3F12AF248DA0032D743 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF3F02AF248DA0032D743 /* Answer.swift */; };
@@ -26,6 +23,9 @@
 		7ABAF4062AF2AE750032D743 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF4052AF2AE750032D743 /* BannerView.swift */; };
 		7ABAF40A2AF2AEBC0032D743 /* BannerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF4092AF2AEBC0032D743 /* BannerModifier.swift */; };
 		7ABAF40C2AF2AEDB0032D743 /* Extensions+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF40B2AF2AEDB0032D743 /* Extensions+View.swift */; };
+		7ABAF4192AF38BDA0032D743 /* QAServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF4182AF38BDA0032D743 /* QAServiceMock.swift */; };
+		7ABAF41C2AF38F1C0032D743 /* QuestionsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF41B2AF38F1C0032D743 /* QuestionsViewModelTests.swift */; };
+		7ABAF41F2AF3A7BF0032D743 /* QuestionsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAF41E2AF3A7BF0032D743 /* QuestionsViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,11 +51,8 @@
 		7ABAF3C22AF246390032D743 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ABAF3C52AF246390032D743 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7ABAF3CB2AF246390032D743 /* SurveyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7ABAF3CF2AF246390032D743 /* SurveyAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAppTests.swift; sourceTree = "<group>"; };
 		7ABAF3D52AF246390032D743 /* SurveyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7ABAF3D92AF246390032D743 /* SurveyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAppUITests.swift; sourceTree = "<group>"; };
 		7ABAF3DB2AF246390032D743 /* SurveyAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		7ABAF3E82AF247020032D743 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		7ABAF3EB2AF2480E0032D743 /* QAService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAService.swift; sourceTree = "<group>"; };
 		7ABAF3EE2AF248A30032D743 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		7ABAF3F02AF248DA0032D743 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
@@ -67,6 +64,9 @@
 		7ABAF4052AF2AE750032D743 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		7ABAF4092AF2AEBC0032D743 /* BannerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModifier.swift; sourceTree = "<group>"; };
 		7ABAF40B2AF2AEDB0032D743 /* Extensions+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+View.swift"; sourceTree = "<group>"; };
+		7ABAF4182AF38BDA0032D743 /* QAServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAServiceMock.swift; sourceTree = "<group>"; };
+		7ABAF41B2AF38F1C0032D743 /* QuestionsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewModelTests.swift; sourceTree = "<group>"; };
+		7ABAF41E2AF3A7BF0032D743 /* QuestionsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +140,8 @@
 		7ABAF3CE2AF246390032D743 /* SurveyAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				7ABAF3CF2AF246390032D743 /* SurveyAppTests.swift */,
+				7ABAF4172AF38BCB0032D743 /* Mocks */,
+				7ABAF41B2AF38F1C0032D743 /* QuestionsViewModelTests.swift */,
 			);
 			path = SurveyAppTests;
 			sourceTree = "<group>";
@@ -148,7 +149,7 @@
 		7ABAF3D82AF246390032D743 /* SurveyAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				7ABAF3D92AF246390032D743 /* SurveyAppUITests.swift */,
+				7ABAF41E2AF3A7BF0032D743 /* QuestionsViewTests.swift */,
 				7ABAF3DB2AF246390032D743 /* SurveyAppUITestsLaunchTests.swift */,
 			);
 			path = SurveyAppUITests;
@@ -157,7 +158,6 @@
 		7ABAF3EA2AF247EF0032D743 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-				7ABAF3E82AF247020032D743 /* API.swift */,
 				7ABAF3EB2AF2480E0032D743 /* QAService.swift */,
 			);
 			path = APIService;
@@ -232,6 +232,14 @@
 				7ABAF40B2AF2AEDB0032D743 /* Extensions+View.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7ABAF4172AF38BCB0032D743 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				7ABAF4182AF38BDA0032D743 /* QAServiceMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,7 +385,6 @@
 				7ABAF3F12AF248DA0032D743 /* Answer.swift in Sources */,
 				7ABAF3FC2AF24BA40032D743 /* QuestionsView.swift in Sources */,
 				7ABAF40A2AF2AEBC0032D743 /* BannerModifier.swift in Sources */,
-				7ABAF3E92AF247020032D743 /* API.swift in Sources */,
 				7ABAF3F42AF249DD0032D743 /* HomeCoordinator.swift in Sources */,
 				7ABAF4032AF2A78B0032D743 /* Banner.swift in Sources */,
 				7ABAF4062AF2AE750032D743 /* BannerView.swift in Sources */,
@@ -390,7 +397,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ABAF3D02AF246390032D743 /* SurveyAppTests.swift in Sources */,
+				7ABAF41C2AF38F1C0032D743 /* QuestionsViewModelTests.swift in Sources */,
+				7ABAF4192AF38BDA0032D743 /* QAServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ABAF3DC2AF246390032D743 /* SurveyAppUITestsLaunchTests.swift in Sources */,
-				7ABAF3DA2AF246390032D743 /* SurveyAppUITests.swift in Sources */,
+				7ABAF41F2AF3A7BF0032D743 /* QuestionsViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

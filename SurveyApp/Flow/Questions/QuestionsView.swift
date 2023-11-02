@@ -45,11 +45,13 @@ struct QuestionsView: View {
                 viewModel.page -= 1
             }
             .disabled(viewModel.page == 0)
+            .accessibilityIdentifier("previousButton")
         
             Button("next") {
                 viewModel.page += 1
             }
             .disabled(viewModel.page == viewModel.totalQuestions - 1)
+            .accessibilityIdentifier("nextButton")
         }
     }
     
@@ -58,6 +60,7 @@ struct QuestionsView: View {
             TextField("Type your answer here", text: $viewModel.answer)
                 .autocorrectionDisabled()
                 .padding()
+                .accessibilityIdentifier("answerTextField")
         }
         .background(Color.gray.opacity(0.2))
     }
@@ -71,6 +74,7 @@ struct QuestionsView: View {
         }
         .disabled(viewModel.answer.isEmpty || viewModel.hasAnswer())
         .background(Color.gray.opacity(0.2))
+        .accessibilityIdentifier("submitButton")
     }
 }
 

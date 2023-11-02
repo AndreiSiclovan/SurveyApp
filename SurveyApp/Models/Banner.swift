@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 enum BannerType {
-    case Success
-    case Error
+    case success
+    case error
 }
 
 struct BannerData {
@@ -21,7 +21,7 @@ struct BannerData {
     
     init(type: BannerType) {
         self.type = type
-        if type == .Success {
+        if type == .success {
             title = "Success"
             detail = "Your answer was submitted successfully."
             color = .green

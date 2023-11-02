@@ -8,8 +8,14 @@
 import Foundation
 import Alamofire
 
-typealias Result<Value> = Swift.Result<Value, APIError>
-final class QAService {
+typealias Result<Value> = Swift.Result<Value, AFError>
+
+protocol QAServiceProtocol {
+    func getQuestions(completion: @escaping (Result<[Question]>) -> Void)
+    func postAnswer(answer: Answer, completion: @escaping (Result<Void>) -> Void)
+}
+
+final class QAService: QAServiceProtocol {
     
     private let baseURL = "https://xm-assignment.web.app/"
     
@@ -19,8 +25,9 @@ final class QAService {
     func getQuestions(completion: @escaping (Result<[Question]>) -> Void) {
         let path = "questions"
         let url = URL(string: baseURL)!.appendingPathComponent(path)
-        API.request(.get, url: url).responseDecodable(of: [Question].self, completionHandler: { response in
-            completion(JSONParser.decodeJson(response))
+        
+        AF.request(url, method: .get).responseDecodable(of: [Question].self, completionHandler: { response in
+            completion(response.result)
         })
     }
     
@@ -32,31 +39,13 @@ final class QAService {
             "answer": answer.answer
         ]
         
-        print("Answer, params", params)
-        
-        API.request(.post, url: url, parameters: params).responseData(completionHandler: { response in
-            
+        AF.request(url, method: .post, parameters: params).response(completionHandler: {
+            response in
             if response.response?.statusCode == 200 {
                 completion(.success(()))
             } else {
-                completion(.failure(.serverError))
+                completion(.failure(.explicitlyCancelled))
             }
         })
-    }
-}
-
-
-class JSONParser {
-    static func decodeJson<T: Codable>(_ response: DataResponse<T, AFError>) -> Result<T> {
-        guard let jsonData = response.data else {
-            return .failure(.serverError)
-        }
-        
-        do {
-            let object = try JSONDecoder().decode(T.self, from: jsonData)
-            return .success(object)
-        } catch {
-            return .failure(.parsingError)
-        }
     }
 }

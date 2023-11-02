@@ -10,6 +10,7 @@ import SwiftUI
 struct BannerView: View {
     let data: BannerData
     @Binding var show: Bool
+    
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 2) {
